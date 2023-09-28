@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 @Configuration
@@ -17,14 +18,15 @@ public class AppConfig {
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/JdbcTemplateIntro");
 		dataSource.setUsername("root");
-		dataSource.setPassword("ThantLwinSoe@123");		
+		dataSource.setPassword("yourcustompassword");		
 		return dataSource;
 	}
 	
 	@Bean
 	public JdbcTemplate getJdbcTemplate() {		
 		return new JdbcTemplate(get_Driver_Manager_Data_Source());
+		
+		
 	}
-	
 	
 }
